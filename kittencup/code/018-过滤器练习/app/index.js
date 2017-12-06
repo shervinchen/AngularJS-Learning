@@ -8,37 +8,40 @@ product.service("productData", function() {
 			price: 5400
 		},
 		{
-			id:3333,
-			name:'iphone',
-			price: 5400
+			id:885,
+			name:'ipad',
+			price: 3420
 		},
 		{
-			id:3333,
-			name:'iphone',
-			price: 5400
+			id:980,
+			name:'imac',
+			price: 15400
+		},
+		{
+			id:1212,
+			name:'ipad mac',
+			price: 2340
+		},
+		{
+			id:3424,
+			name:'ipad mini',
+			price: 2200
 		},
 	];
 });
 
-product.controller('productController', ['$scope','Data','$filter',
-	function($scope,Data,$filter) {
-		$scope.data = Data;
-		$scope.today = new Date();
+product.controller('productController', ['$scope','productData',
+	function($scope,productData) {
+		$scope.productData = productData;
+		$scope.orderType = 'id';
+		$scope.order = '-';
 
-		// 过滤器
-		var number = $filter('number')('3000');
-		console.log(number);
-
-		var json = $filter('json')($scope.data); // json格式化主要用于调试
-		console.log(json);
-
-		// 会将city数组中的每个对象传递过来
-		$scope.checkName = function(obj) {
-			console.log(obj);
-			if (obj.py.indexOf('h') == -1) {
-				return true;
+		$scope.changeOrder = function(type) {
+			$scope.orderType = type;
+			if ($scope.order === '') {
+				$scope.order = '-';
 			} else {
-				return false;
+				$scope.order = '';
 			}
 		};
 	}
