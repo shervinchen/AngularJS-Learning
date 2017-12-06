@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div ng-controller="firstController">
+			<p>{{123456789 | number}}</p>
+			<p>{{123456789 | number:3}}</p>
+			<p>{{99999 | currency}}</p>
+			<p>{{99999 | currency:'rmb'}}</p>
+			<p>{{today}}</p>
+			<p>{{today | date}}</p>
+			<p>{{today | date:'short'}}</p>
+			<p>{{today | date:'medium'}}</p>
+			<p>{{today | date:'fullDate'}}</p>
+			<p>{{today | date:'longDate'}}</p>
+			<p>{{today | date:'mediumDate'}}</p>
+			<p>{{today | date:'shortDate'}}</p>
+			<p>{{today | date:'mediumTime'}}</p>
+			<p>{{today | date:'shortTime'}}</p>
+			<p>{{today | date:'y'}}</p>
+			<p>{{today | date:'yy'}}</p>
+			<p>{{today | date:'yyyy'}}</p>
+			<p>{{today | date:'yyyy-MM-dd'}}</p>
+			<p>{{today | date:'M'}}</p>
+			<p>{{today | date:'MM'}}</p>	
+			<p>{{today | date:'MMM'}}</p>
+			<p>{{today | date:'MMMM'}}</p>
+			<p>{{today | date:'d'}}</p>
+			<p>{{today | date:'dd'}}</p>	
+			<p>{{today | date:'EEE'}}</p>
+			<p>{{today | date:'EEEE'}}</p>
+			<p>{{today | date:'H'}}</p>
+			<p>{{today | date:'HH'}}</p>	
+			<p>{{today | date:'hh'}}</p>
+			<p>{{today | date:'h'}}</p>
+			<p>{{today | date:'mm'}}</p>
+			<p>{{today | date:'m'}}</p>
+			<p>{{today | date:'ss'}}</p>
+			<p>{{today | date:'s'}}</p>
+			<p>{{today | date:'.sss'}}</p>
+			<p>{{today | date:'y-MM-d H:m:s'}}</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../vendor/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app/index.js"></script>
+</body>
+</html>
