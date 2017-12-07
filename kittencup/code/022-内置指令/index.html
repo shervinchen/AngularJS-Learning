@@ -3,6 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style type="text/css">
+		.red {
+			color: red;
+		}
+	</style>
 </head>
 <body>
 	<div ng-app="myApp">
@@ -10,8 +15,8 @@
 			<p>{{1+1}}</p>
 			<p ng-bind="1+1"></p>
 			<p ng-bind-template="{{1+1}}"></p>
-			<ul ng-init="cityArr = ['上海','北京','杭州']">
-				<li ng-repeat="city in cityArr">
+			<ul ng-class="{red:status}" ng-init="cityArr = ['上海','北京','杭州']">
+				<li ng-class-even="'偶数'" ng-class-odd="'奇数'" ng-repeat="city in cityArr">
 					<span>index:{{$index}}</span>
 					<span>first:{{$first}}</span>
 					<span>middle:{{$middle}}</span>
@@ -23,6 +28,23 @@
 			<div ng-include src="'other.html'"></div> -->
 			<button ng-click="changeStatus($event)">切换状态</button>
 			<p>{{status}}</p>
+			<div ng-style="defaultStyle" ng-show="status">
+				ng-style
+			</div>
+			<ul ng-switch on="status">
+				<li ng-switch-when="true">
+					true
+				</li>
+				<li ng-switch-when="false">
+					false
+				</li>
+			</ul>
+
+			<img ng-src="{{src}}" alt="">
+			<img ng-href="{{src}}" alt="">
+			<div ng-if="status">
+				status show
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="../../vendor/angular/angular.min.js"></script>
