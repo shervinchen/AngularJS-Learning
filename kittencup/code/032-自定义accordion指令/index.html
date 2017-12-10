@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+	<div ng-app="myApp">
+		<div class="container">
+			<div ng-controller="firstController">
+				<csd-group>
+					<csd-collapse ng-repeat="collapse in data" heading="{{collapse.title}}">
+						{{collapse.content}}
+					</csd-collapse>
+				</csd-group>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../vendor/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app/index.js"></script>
+</body>
+</html>

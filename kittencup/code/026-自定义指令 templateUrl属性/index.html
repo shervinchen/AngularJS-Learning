@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div ng-controller="firstController">
+			<script type="text/ng-template" id="customTags2">
+				<div>hello {{name}}</div>
+			</script>
+			<custom-tags></custom-tags>
+			<custom-tags2></custom-tags2>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../vendor/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app/index.js"></script>
+</body>
+</html>
