@@ -10,6 +10,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
     		url: '/main',
     		templateUrl: 'view/main.html',
     		controller: 'mainCtrl'
+    	}).state('position', {
+    		url: '/position/:id',
+    		templateUrl: 'view/position.html',
+    		controller: 'positionCtrl'
     	});
     	$urlRouterProvider.otherwise("main");
 	}
@@ -44,6 +48,14 @@ app.controller('mainCtrl', ['$scope',
 
 'use strict';
 
+app.controller('positionCtrl', ['$scope',
+  function($scope) {
+    
+  }
+]);
+
+'use strict';
+
 app.directive('appFoot', [function() {
   return {
     templateUrl: 'view/template/foot.html',
@@ -59,6 +71,24 @@ app.directive('appHead', [function() {
     templateUrl: 'view/template/head.html',
     restrict: 'ECAM',
     replace: true
+  };
+}]);
+
+'use strict';
+
+app.directive('appHeadBar', [function() {
+  return {
+    templateUrl: 'view/template/headBar.html',
+    restrict: 'ECAM',
+    replace: true,
+    scope: {
+    	text: '@'
+    },
+    link: function($scope) {
+    	$scope.back = function() {
+    		window.history.back();
+    	};
+    }
   };
 }]);
 

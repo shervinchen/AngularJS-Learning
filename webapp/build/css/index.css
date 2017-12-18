@@ -17,6 +17,11 @@
   padding-left: 0.4rem;
   padding-right: 0.4rem;
 }
+.head .back-btn {
+  font-size: 20px;
+  width: 1rem;
+  left: 0;
+}
 .foot {
   border-top: 1px solid #d4d4d4;
   padding: 0;
@@ -77,6 +82,9 @@
 .bg-w {
   background-color: #fff;
 }
+.c-w {
+  color: #fff;
+}
 .f-l {
   float: left;
 }
@@ -91,6 +99,12 @@
 }
 .d-b {
   display: block;
+}
+.p-a {
+  position: absolute;
+}
+.p-r {
+  position: relative;
 }
 .ta-l {
   text-align: left;
