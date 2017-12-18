@@ -53,7 +53,7 @@ gulp.task('js', function() {
 gulp.task('image', function() {
 	gulp.src(app.srcPath + 'image/**/*')
 	.pipe(gulp.dest(app.devPath + 'image'))
-	// .pipe($.imagemin())
+	.pipe($.imagemin())
 	.pipe(gulp.dest(app.prdPath + 'image'))
 	.pipe($.connect.reload());
 });
