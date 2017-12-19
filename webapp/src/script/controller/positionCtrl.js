@@ -9,7 +9,7 @@ app.controller('positionCtrl', ['$q', '$http', '$state', '$scope',
 	// 职位信息
   	function getPosition() {
   		// 声明一个延迟加载对象
-  		var def = $q.defer();    
+  		var def = $q.defer();
 	    $http.get('/data/position.json?id='+$state.params.id).then(function(response) {
 	     	$scope.position = response.data;
 	    	def.resolve(response);
@@ -29,11 +29,10 @@ app.controller('positionCtrl', ['$q', '$http', '$state', '$scope',
   	// getPosition中的请求执行以后才执行then中的回调（因为这里必须先获取职位再获取公司信息）
   	// then里面传入的两个函数分别对应resolve和reject
   	getPosition().then(function(obj) {
-  		console.log(obj);
   		getCompany(obj.data.companyId);
   	}, function(){});
 
-    
+
     // 职位描述
   }
 ]);
