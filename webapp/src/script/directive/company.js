@@ -4,6 +4,9 @@ app.directive('appCompany', [function() {
   return {
     templateUrl: 'view/template/company.html',
     restrict: 'ECAM',
-    replace: true
+    replace: true,
+    scope: {
+    	com: '='
+    }
   };
 }]);

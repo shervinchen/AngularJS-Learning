@@ -6,7 +6,9 @@ app.directive('appPositionInfo', [function() {
     restrict: 'ECAM',
     replace: true,
     scope: {
-      isActive: '='
+      isActive: '=',
+      isLogin: '=',
+      pos: '='
     },
     link: function ($scope) {
       $scope.imagePath = $scope.isActive ? 'image/star-active.png' : 'image/star.png';
