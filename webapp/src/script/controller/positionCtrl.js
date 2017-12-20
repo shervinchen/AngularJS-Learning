@@ -2,15 +2,30 @@
 
 // 职位详情页
 // $q实现promise  解决请求嵌套回调的问题
-app.controller('positionCtrl', ['$q', '$http', '$state', '$scope',
-  function($q, $http, $state, $scope) {
-  	$scope.isLogin = false;
+app.controller('positionCtrl', ['$q', '$http', '$state', '$scope', 'cache',
+  function($q, $http, $state, $scope, cache) {
+    // cache.put('to', 'day');
+    cache.remove('to');
 
-	// 职位信息
+  	$scope.isLogin = false;
+    // 所有$scope都能调用$rootScope上定义的方法
+    // $scope.im();
+
+	   // 职位信息
   	function getPosition() {
   		// 声明一个延迟加载对象
   		var def = $q.defer();
-	    $http.get('/data/position.json?id='+$state.params.id).then(function(response) {
+      // $http['post'/'delete'/'put']('url',{数据对象},{配置对象})
+      /*$http({
+        url: '',
+        method: '',
+        params: {},
+        data: {}
+      })*/
+      // get 请求也可以用params配置对象来配置请求的参数
+	    $http.get('/data/position.json', {
+        params: {id: $state.params.id}
+      }).then(function(response) {
 	     	$scope.position = response.data;
 	    	def.resolve(response);
 	    }).catch(function(response) {
@@ -32,6 +47,9 @@ app.controller('positionCtrl', ['$q', '$http', '$state', '$scope',
   		getCompany(obj.data.companyId);
   	}, function(){});
 
+    // $q.all([fun1(), fun2()]).then(function(result){});
+    // $timeout(function(){}, 2000);
+    // $interval(function(){}, 2000);
 
     // 职位描述
   }

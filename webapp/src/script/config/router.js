@@ -11,10 +11,14 @@ app.config(['$stateProvider', '$urlRouterProvider',
     		templateUrl: 'view/position.html',
     		controller: 'positionCtrl'
     	}).state('company', {
-        url: '/company/:id',
-        templateUrl: 'view/company.html',
-        controller: 'companyCtrl'
-      });
+            url: '/company/:id',
+            templateUrl: 'view/company.html',
+            controller: 'companyCtrl'
+        }).state('search', {
+            url: '/search',
+            templateUrl: 'view/search.html',
+            controller: 'searchCtrl'
+        });
     	$urlRouterProvider.otherwise("main");
 	}
 ]);
