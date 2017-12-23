@@ -2,11 +2,11 @@
 	<form class="d-b ta-c" action="" name="form">
 		<div class="form-line ta-l p-r">
 			<span class="icon account va-t d-ib"></span>
-			<input validator="phone" ng-model="user.phone" class="d-ib" type="text" placeholder="输入手机号">
+			<input name="phone" validator="required,phone" ng-model="user.phone" class="d-ib" type="text" placeholder="输入手机号">
 		</div>
 		<div class="form-line ta-l p-r">
 			<span class="icon lock va-t d-ib"></span>
-			<input validator="password" ng-model="user.password" class="d-ib" type="text" placeholder="输入密码">
+			<input name="password" validator="required,password" ng-model="user.password" class="d-ib" type="password" placeholder="输入密码">
 		</div>
 		<button class="login-btn" validation-submit="form" ng-click="submit()">登录</button>
 		<button class="register-btn" ui-sref="register">注册</button>

@@ -2,12 +2,13 @@
 
 // 职位详情页
 // $q实现promise  解决请求嵌套回调的问题
-app.controller('positionCtrl', ['$q', '$http', '$state', '$scope', 'cache',
-  function($q, $http, $state, $scope, cache) {
+app.controller('positionCtrl', ['$log', '$q', '$http', '$state', '$scope', 'cache',
+  function($log, $q, $http, $state, $scope, cache) {
     // cache.put('to', 'day');
-    cache.remove('to');
+    // cache.remove('to');
 
-  	$scope.isLogin = false;
+  	$scope.isLogin = !!cache.get('name');
+    $scope.message = $scope.isLogin ? '投个简历' : '去登陆';
     // 所有$scope都能调用$rootScope上定义的方法
     // $scope.im();
 
@@ -27,6 +28,9 @@ app.controller('positionCtrl', ['$q', '$http', '$state', '$scope', 'cache',
         params: {id: $state.params.id}
       }).then(function(response) {
 	     	$scope.position = response.data;
+        if (response.data.posted) {
+          $scope.message = '已投递';
+        }
 	    	def.resolve(response);
 	    }).catch(function(response) {
 	    	def.reject(response);
@@ -46,6 +50,21 @@ app.controller('positionCtrl', ['$q', '$http', '$state', '$scope', 'cache',
   	getPosition().then(function(obj) {
   		getCompany(obj.data.companyId);
   	}, function(){});
+
+    $scope.go = function () {
+      if ($scope.message !== '已投递') {
+        if ($scope.isLogin) {
+          $http.post('data/handle.json', {
+            id: $scope.position.id
+          }).then(function(response){
+            $log.info(response);
+            $scope.message = '已投递';
+          }, function(response) {});
+        } else {
+          $state.go('login');
+        }
+      }
+    }
 
     // $q.all([fun1(), fun2()]).then(function(result){});
     // $timeout(function(){}, 2000);

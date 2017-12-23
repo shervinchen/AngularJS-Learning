@@ -13,6 +13,47 @@
 @import 'login.less';
 @import 'register.less';
 @import 'me.less';
+@import 'post.less';
+
+.ng-enter {
+  transition: 0.5s linear all;
+  opacity: 0;
+}
+
+.ng-enter-active {
+  opacity: 1;
+}
+
+// @-webkit-keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//
+//   to {
+//     opacity: 1;
+//   }
+// }
+//
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//
+//   to {
+//     opacity: 1;
+//   }
+// }
+//
+// .fadeIn {
+//   animation-name: fadeIn;
+// }
+
+// .animated {
+//   -webkit-animation-duration: 1s;
+//   animation-duration: 1s;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+// }
 
 .fs(@px) {
   font-size: unit(@px / 37.5, rem);
